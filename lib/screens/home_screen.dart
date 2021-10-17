@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fazebook/widgets/widgets.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,12 +32,12 @@ class HomeScreen extends StatelessWidget {
               CircleButton(
                 icon: Icons.search,
                 iconSize: 30.0,
-                onPressed: () {},
+                onPressed: () => print('search'),
               ),
               CircleButton(
-                icon: Icons.search,
+                icon: MdiIcons.facebookMessenger,
                 iconSize: 30.0,
-                onPressed: () {},
+                onPressed: () => print('message'),
               ),
             ],
           ),

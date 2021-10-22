@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                 letterSpacing: -1.2,
               ),
             ),
-            // centerTitle: false,
+            centerTitle: false,
             floating: true,
             actions: [
               CircleButton(

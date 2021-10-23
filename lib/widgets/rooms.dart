@@ -1,4 +1,6 @@
+import 'package:fazebook/config/palette.dart';
 import 'package:fazebook/models/models.dart';
+import 'package:fazebook/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Rooms extends StatelessWidget {
@@ -21,11 +23,13 @@ class Rooms extends StatelessWidget {
               child: _CreateRoomButton(),
             );
           }
-          return Container(
-            margin: const EdgeInsets.all(2),
-            height: 20,
-            width: 20,
-            color: Colors.amber,
+          final User user = onlineUsers[index - 1];
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: ProfileAvatar(
+              imageUrl: user.imageUrl,
+              isActive: true,
+            ),
           );
         },
       ),
@@ -42,9 +46,34 @@ class _CreateRoomButton extends StatelessWidget {
       style: OutlinedButton.styleFrom(
         shape: const StadiumBorder(),
         side: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+        textStyle: const TextStyle(
+          color: Palette.facebookBlue,
+        ),
       ),
       onPressed: () => print('Create Room'),
-      child: Container(),
+      child: Row(
+        children: [
+          ShaderMask(
+            shaderCallback: (rect) =>
+                Palette.createRoomGradient.createShader(rect),
+            child: const Icon(
+              Icons.video_call,
+              size: 35,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(
+            width: 5.0,
+          ),
+          const Text(
+            'Create\nRoom',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.5,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

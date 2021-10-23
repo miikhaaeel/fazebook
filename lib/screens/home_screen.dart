@@ -1,4 +1,5 @@
 import 'package:fazebook/config/palette.dart';
+import 'package:fazebook/data/data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +8,7 @@ import 'package:fazebook/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
+  
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -40,6 +42,9 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () => print('message'),
               ),
             ],
+          ),
+          const SliverToBoxAdapter(
+            child: CreatePostContainer(currentUser: currentUser)
           ),
         ],
       ),

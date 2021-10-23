@@ -77,11 +77,3 @@ class _CreateRoomButton extends StatelessWidget {
     );
   }
 }
-
-
-//  OutlineButton(
-//       onPressed: () => print('Create Room'),
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(20)
-//       ),
-//     );

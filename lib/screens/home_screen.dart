@@ -1,5 +1,7 @@
 import 'package:fazebook/config/palette.dart';
 import 'package:fazebook/data/data.dart';
+import 'package:fazebook/models/models.dart';
+import 'package:fazebook/widgets/post_container.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -58,7 +60,16 @@ class HomeScreen extends StatelessWidget {
                 stories: stories,
               ),
             ),
-          )
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final Post post = posts[index];
+                return PostContainer(post: post);
+              },
+              childCount: posts.length,
+            ),
+          ),
         ],
       ),
     );

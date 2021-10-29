@@ -52,7 +52,7 @@ class _CreateRoomButton extends StatelessWidget {
       ),
       onPressed: () => print('Create Room'),
       child: Row(
-        children: [
+        children: const [
           ShaderMask(
             shaderCallback: (rect) =>
                 Palette.createRoomGradient.createShader(rect),
@@ -62,10 +62,15 @@ class _CreateRoomButton extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          const SizedBox(
+          // Icon(
+          //   Icons.video_call,
+          //   size: 35,
+          //   color: Colors.purple,
+          // ),
+          SizedBox(
             width: 5.0,
           ),
-          const Text(
+          Text(
             'Create\nRoom',
             style: TextStyle(
               fontWeight: FontWeight.w600,

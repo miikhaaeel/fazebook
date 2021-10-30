@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fazebook/config/palette.dart';
-import 'package:fazebook/data/data.dart';
 import 'package:fazebook/models/models.dart';
 import 'package:fazebook/widgets/widgets.dart';
 import 'package:flutter/material.dart';

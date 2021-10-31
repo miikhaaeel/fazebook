@@ -1,3 +1,4 @@
+import 'package:fazebook/data/data.dart';
 import 'package:fazebook/screens/screens.dart';
 import 'package:fazebook/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -30,22 +31,40 @@ class _NavScreenState extends State<NavScreen> {
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     return DefaultTabController(
       length: _icons.length,
       child: Scaffold(
+        appBar: Responsive.isDesktop(context)
+            ? PreferredSize(
+                preferredSize: Size(screenSize.width, 100),
+                child: CustomAppBar(
+                  currentUser:currentUser,
+                  icon:_icons,
+                  selectedIndex:_selectedIndex,
+                 onTap: (index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                ),
+              )
+            : null,
         body: IndexedStack(
           index: _selectedIndex,
           children: _screens,
         ),
-        bottomNavigationBar: CustomTabBar(
-          icons: _icons,
-          selectedIndex: _selectedIndex,
-          onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-        ),
+        bottomNavigationBar: !Responsive.isDesktop(context)
+            ? CustomTabBar(
+                icons: _icons,
+                selectedIndex: _selectedIndex,
+                onTap: (index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
+              )
+            : const SizedBox.shrink(),
       ),
     );
   }

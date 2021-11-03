@@ -40,7 +40,7 @@ class _NavScreenState extends State<NavScreen> {
                 preferredSize: Size(screenSize.width, 100),
                 child: CustomAppBar(
                   currentUser:currentUser,
-                  icon:_icons,
+                  icons:_icons,
                   selectedIndex:_selectedIndex,
                  onTap: (index) {
                     setState(() {

@@ -21,7 +21,8 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      height: 50,
+ 
+      height:65,
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -46,32 +47,38 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: 600,
-            child: CustomTabBar(
-              icons: icons,
-              selectedIndex: selectedIndex,
-              onTap: onTap,
+          Expanded(
+            child: Container(
+              width: 600,
+              height: double.infinity,
+          
+              child: CustomTabBar(
+                icons: icons,
+                selectedIndex: selectedIndex,
+                onTap: onTap,
+                isBottomIndicator: true,
+              ),
             ),
           ),
           Expanded(
-                         child: Row(
-           // mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              UserCard(user: currentUser),
-              const SizedBox(width: 12),
-              CircleButton(
-                icon: Icons.search,
-                iconSize: 30.0,
-                onPressed: () => print('search'),
-              ),
-              CircleButton(
-                icon: MdiIcons.facebookMessenger,
-                iconSize: 30.0,
-                onPressed: () => print('message'),
-              ),
-            ],
-          ))
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                UserCard(user: currentUser),
+                const SizedBox(width: 12),
+                CircleButton(
+                  icon: Icons.search,
+                  iconSize: 30.0,
+                  onPressed: () => print('search'),
+                ),
+                CircleButton(
+                  icon: MdiIcons.facebookMessenger,
+                  iconSize: 30.0,
+                  onPressed: () => print('message'),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

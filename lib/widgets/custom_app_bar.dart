@@ -21,8 +21,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
- 
-      height:65,
+      height: 65,
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -51,7 +50,6 @@ class CustomAppBar extends StatelessWidget {
             child: Container(
               width: 600,
               height: double.infinity,
-          
               child: CustomTabBar(
                 icons: icons,
                 selectedIndex: selectedIndex,
